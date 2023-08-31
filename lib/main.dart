@@ -9,71 +9,79 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Lesson 6"),
-          ),
-          body: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+        appBar: AppBar(
+          title: Text("My Flutter App"),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Image.asset(
+                  "assets/images/carts.png",
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Column(
                   children: [
-                    Image.network(
-                      'https://logos-download.com/wp-content/uploads/2016/02/Twitter_Logo_new.png',
-                      width: 100,
-                      height: 100,
+                    Text(
+                      "My Shoping Mall",
+                      style:
+                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
-                    const Column(
-                      children: [
-                        Text(
-                          "Twitter App",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text("Connecting People"),
-                      ],
+                    Text(
+                      "We deliver promisses",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     )
                   ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          labelText: "Username",
-                          hintText: 'What do people call you?',
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: "Password",
-                          hintText: 'What do people call you?',
-                        ),
-                      ),
-                      const SizedBox(height: 10,),
-                      Row(
-                        children: [
-                          Expanded(child:  ElevatedButton(onPressed: () {}, child: Text("Login")))
-                        ],
-                      )
-          
-                    ],
-                  ),
-                ),
+                )
               ],
             ),
-          )),
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: "Username",
+                      hintText: 'Enter your username',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: "Password",
+                      hintText: 'Enter your password',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Login"),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
