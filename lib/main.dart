@@ -4,84 +4,46 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  int counter = 0;
+  @override
+  Widget build(Object context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("My Flutter App"),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/carts.png",
-                  width: 100,
-                  height: 100,
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "My Shoping Mall",
-                      style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "We deliver promisses",
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Username",
-                      hintText: 'Enter your username',
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Password",
-                      hintText: 'Enter your password',
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Login"),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
+          appBar: AppBar(
+            title: Text("My Flutter App"),
+          ),
+          body: Column(
+            children: [
+              Text(
+                "Counter: $counter",
+                style: const TextStyle(fontSize: 24),
               ),
-            )
-          ],
-        ),
-      ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                      counter++;
+                  });
+                },
+                child: Text("Add"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                      counter--;
+                  });
+                },
+                child: Text("Minus"),
+              ),
+            ],
+          )),
     );
   }
 }
