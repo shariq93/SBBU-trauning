@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 
 void main() {
+  // runApp(MyApp());
   runApp(MaterialApp(home: MyApp()));
 }
 
@@ -76,35 +77,36 @@ class MyApp extends StatelessWidget {
                       onPressed: () {
                         String errors = "";
                         print("name: $name, password: $password");
-                        if (name == "admin") {
-                          if (password == 'abc123') {
-                            Navigator.push(
+                        // if (name == "admin") {
+                        //   if (password == 'abc123') {
+                        //      } else {
+                        //     errors = "Invalid Password";
+                        //   }
+                        // } else {
+                        //   errors = "User not found";
+                        // }
+                        Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomeScreen()));
-                          } else {
-                            errors = "Invalid Password";
-                          }
-                        } else {
-                          errors = "User not found";
-                        }
-                        if (errors != "") {
-                          showDialog(
-                              context: context,
-                              builder: (ctx) {
-                                return AlertDialog(
-                                  title: Text("Alert!"),
-                                  content: Text(errors),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text("Okay!"))
-                                  ],
-                                );
-                              });
-                        }
+                         
+                        // if (errors != "") {
+                        //   showDialog(
+                        //       context: context,
+                        //       builder: (ctx) {
+                        //         return AlertDialog(
+                        //           title: Text("Alert!"),
+                        //           content: Text(errors),
+                        //           actions: [
+                        //             TextButton(
+                        //                 onPressed: () {
+                        //                   Navigator.pop(context);
+                        //                 },
+                        //                 child: Text("Okay!"))
+                        //           ],
+                        //         );
+                        //       });
+                        // }
                       },
                       child: Text("Login"),
                     ),

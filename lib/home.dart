@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
         "price": '12'
       },
       {
-        "name": "Modern Design Four Legs Chair withou Arms",
+        "name": "Modern Design Four Leg",
         "image":
             'https://www.demo.martvill.techvill.net/public/uploads/20221123/f8256ae374c1432ad6b8ac1e81fde25e.jpg',
         "price": '18'
