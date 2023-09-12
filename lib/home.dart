@@ -1,3 +1,5 @@
+import 'package:demo_1/model/product_model.dart';
+import 'package:demo_1/service/api.dart';
 import 'package:demo_1/widgets/priduct_item.dart';
 import 'package:flutter/material.dart';
 
@@ -9,22 +11,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Product> products = [];
+
+  getProduct() async {
+    print("on INIIT");
+    var prods = await Api().fetchProduct();
+    setState(() {
+      products = prods;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getProduct();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<dynamic> products = [
-      {
-        "name": "One Seat Pillow Yellow Sufa",
-        "image":
-            'https://www.demo.martvill.techvill.net/public/uploads/20221123/8455776f6791cd5479bb9a88c829876c.png',
-        "price": '12'
-      },
-      {
-        "name": "Modern Design Four Leg",
-        "image":
-            'https://www.demo.martvill.techvill.net/public/uploads/20221123/f8256ae374c1432ad6b8ac1e81fde25e.jpg',
-        "price": '18'
-      }
-    ];
+   
     return Scaffold(
         appBar: AppBar(
           title: Text("Second Screen"),
@@ -34,9 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               var prod = products[index];
               return ProductItem(
-                  name: prod['name'],
-                  image: prod['image'],
-                  price: prod["price"]);
+                product: prod,
+              );
             }));
   }
 }

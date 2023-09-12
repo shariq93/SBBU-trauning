@@ -10,7 +10,11 @@ void main() {
 class MyApp extends StatelessWidget {
   String name = "";
   String password = "";
-
+  List prods = [
+    {
+      "name":'My Priduct Name',
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

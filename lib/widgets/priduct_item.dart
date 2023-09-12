@@ -1,15 +1,13 @@
+import 'package:demo_1/model/product_model.dart';
 import 'package:demo_1/product_details.dart';
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem(
       {super.key,
-      required this.name,
-      required this.image,
-      required this.price});
-  final String name;
-  final String image;
-  final String price;
+      required this.product,
+     });
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +17,7 @@ class ProductItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                image,
+                product.image,
                 width: 100,
                 height: 100,
               ),
@@ -29,12 +27,12 @@ class ProductItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      name,
+                      product.title,
                       softWrap: true,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                     ),
-                    Text('Price \$ $price')
+                    Text('Price \$ ${product.price}')
                   ],
                 ),
               )

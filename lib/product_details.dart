@@ -13,12 +13,12 @@ class ProductDetails extends StatelessWidget {
     {
       "image":
           "https://www.demo.martvill.techvill.net/public/uploads/20221123/8455776f6791cd5479bb9a88c829876c.png",
-      "title": "My Sofa 2 "
+      "title": "My Sofa 2"
     },
     {
       "image":
           "https://www.demo.martvill.techvill.net/public/uploads/sizes/medium/20221116/8e4f7f9cffd21f3f267147d2cf3e79b1.jpg",
-      "title": "My Key chains"
+      "title": "My Key Chains"
     },
   ];
 
@@ -61,7 +61,10 @@ class ProductDetails extends StatelessWidget {
                               width: MediaQuery.of(context).size.width,
                               fit: BoxFit.cover,
                             ),
-                            Text(item["title"],style: TextStyle(fontSize:20),)
+                            Text(
+                              item["title"],
+                              style: TextStyle(fontSize: 20),
+                            )
                           ],
                         ),
                       );
