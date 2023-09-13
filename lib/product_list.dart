@@ -49,9 +49,7 @@ var url = Uri.parse("https://fakestoreapi.com/products");
             itemCount: products.length,
             itemBuilder: (context, index) {
               var prod = products[index];
-              return ProductItem(
-                product: prod,
-              );
+              return ProductItem(product: prod,);
             }));
   }
 }

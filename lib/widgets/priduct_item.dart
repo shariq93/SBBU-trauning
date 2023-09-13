@@ -3,10 +3,8 @@ import 'package:demo_1/product_details.dart';
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem(
-      {super.key,
-      required this.product,
-     });
+  const ProductItem({super.key,required this.product});
+  
   final Product product;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class ProductItem extends StatelessWidget {
                   children: [
                     Text(
                       product.title,
-                      softWrap: true,
+                     
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                     ),

@@ -6,10 +6,7 @@ class Product {
   final String price;
   Product({required this.title, required this.image, required this.price});
 
-  factory Product.fromJson(dynamic json) {
-    return Product(
-        title: json['title'], image: json['image'], price: json['price'].toString());
-  }
+ 
 }
 
 
