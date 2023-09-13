@@ -1,3 +1,4 @@
+import 'package:demo_1/product_list.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -92,7 +93,7 @@ class MyApp extends StatelessWidget {
                         Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()));
+                                    builder: (context) => const ProductList()));
                          
                         // if (errors != "") {
                         //   showDialog(
