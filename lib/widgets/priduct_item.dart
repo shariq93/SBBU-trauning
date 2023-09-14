@@ -40,7 +40,7 @@ class ProductItem extends StatelessWidget {
               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>  ProductDetails()));
+                                    builder: (context) =>  ProductDetails(productId: product.id,)));
                       
           }, child: Text("Show details"))
         ]),

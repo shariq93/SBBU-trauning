@@ -24,7 +24,11 @@ var url = Uri.parse("https://fakestoreapi.com/products");
 
   for (var item in list) {
    products.add(
-    Product(title: item["title"], image: item['image'], price: item['price'].toString())
+    Product(
+    id:item["id"].toString(), 
+    title: item["title"],
+    image: item['image'], 
+    price: item['price'].toString())
    );
    
   }

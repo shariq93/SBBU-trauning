@@ -6,15 +6,22 @@ import 'package:http/http.dart' as http;
 
 import 'model/product_model.dart';
 
-class ProductDetails extends StatefulWidget {
-  const ProductDetails({super.key});
 
+
+class ProductDetails extends StatefulWidget {
+   ProductDetails({super.key,required this.productId});
+  final String productId ;
   @override
-  State<ProductDetails> createState() => _ProductDetailsState();
+  State<ProductDetails> createState() => _ProductDetailsState(productId: productId);
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  Product product = Product(title: "", image: "", price: "");
+
+   _ProductDetailsState({required this.productId});
+
+   final String productId ;
+
+  Product product = Product(id:"",title: "", image: "", price: "");
 
   getProductDetails(String id) async {
     var url = Uri.parse("https://fakestoreapi.com/products/$id");
@@ -23,14 +30,14 @@ class _ProductDetailsState extends State<ProductDetails> {
 
     var data = jsonDecode(response.body);
     setState(() {
-      product = Product(title: data['title'], image: data['image'], price: "");
+      product = Product(id:data['id'].toString(),title: data['title'], image: data['image'], price:  data['price'].toString());
     });
   }
 
   @override
   void initState() {
     // TODO: implement initState
-    getProductDetails("10");
+    getProductDetails(productId);
     super.initState();
   }
 
@@ -53,6 +60,10 @@ class _ProductDetailsState extends State<ProductDetails> {
             Text(
               product.title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+             Text(
+              "Price \$ ${product.price} ",
+              style: TextStyle(fontSize: 20, ),
             ),
           ]),
         ),
